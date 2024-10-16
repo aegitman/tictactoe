@@ -8,6 +8,10 @@ var ai = new Minimax('O');
 function userHitsOnAi(e) {
     console.log("User hits on AI");
     let y = parseInt(e.target.getAttribute('data-col'));
+    if (e.target.innerHTML == "O") {
+        // no override
+        return;
+    }
     e.target.innerHTML = "X";
 
     if (checkIfPlayerWon('X')) {
@@ -52,6 +56,7 @@ function setupGame() {
     ai = new Minimax('O');
     var cells = document.getElementsByClassName("cell");
     for (let cell of cells) {
+        cell.classList.remove("cell-win");
         cell.innerHTML = '';
     }    
 }
@@ -77,33 +82,47 @@ function checkIfPlayerWon(player) {
     var cells = document.getElementsByClassName("cell");
     let values = [];
     for (let cell of cells) {
-        values.push(cell.innerHTML);
+        values.push({v:cell.innerHTML, c:cell});
     }
 
-    if (values[0] == player && values[1] == player && values[2] == player) { 
+    if (values[0].v == player && values[1].v == player && values[2].v == player) { 
+        markWin(values[0].c, values[1].c, values[2].c);
         return true;
     }
-    if (values[3] == player && values[4] == player && values[5] == player) { 
-               return true;
-    }
-    if (values[6] == player && values[7] == player && values[8] == player) { 
+    if (values[3].v == player && values[4].v == player && values[5].v == player) { 
+        markWin(values[3].c, values[4].c, values[5].c);
         return true;
     }
-    if (values[0] == player && values[3] == player && values[6] == player) {
+    if (values[6].v == player && values[7].v == player && values[8].v == player) { 
+        markWin(values[6].c, values[7].c, values[8].c);
         return true;
     }
-    if (values[1] == player && values[4] == player && values[7] == player) {
+    if (values[0].v == player && values[3].v == player && values[6].v == player) {
+        markWin(values[0].c, values[3].c, values[6].c);
         return true;
     }
-    if (values[2] == player && values[5] == player && values[8] == player) {
+    if (values[1].v == player && values[4].v == player && values[7].v == player) {
+        markWin(values[1].c, values[4].c, values[7].c);
         return true;
     }
-    if (values[0] == player && values[4] == player && values[8] == player) {
+    if (values[2].v == player && values[5].v == player && values[8].v == player) {
+        markWin(values[2].c, values[5].c, values[8].c);
         return true;
     }
-    if (values[2] == player && values[4] == player && values[6] == player) {
+    if (values[0].v == player && values[4].v == player && values[8].v == player) {
+        markWin(values[0].c, values[4].c, values[8].c);
         return true;
     }
+    if (values[2].v == player && values[4].v == player && values[6].v == player) {
+        markWin(values[2].c, values[4].c, values[6].c);
+        return true;
+    }
+ }
+
+ function markWin(c1, c2, c3) {
+    c1.classList.add("cell-win");
+    c2.classList.add("cell-win");
+    c3.classList.add("cell-win");
  }
 
 setupGameBtn.addEventListener('click', setupGame);

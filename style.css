@@ -50,3 +50,7 @@ body {
     align-items: center;
     font-size: 75px;
 }
+
+.cell-win {
+    background: yellow;
+}
