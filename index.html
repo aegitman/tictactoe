@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TIC TAC TOE</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<main>
+    <div class="container disable-dbl-tap-zoom">
+        <div class="status-bar">
+            <h1 class="mt-5">TIC TAC TOE</h1>
+            <div class="score">
+                <h4 class="scoreHead">player - <span id="userScore">0</span> | <span id="aiScore">0</span> - computer</h4>
+            </div>
+            <div>
+                <button id="setupGame">New game</button>                
+            </div>
+        </div>
+        <h5></h5>
+        <span id="status"></span>
+        <h5></h5>
+        <div class="gameDiv">            
+            <div class="board userBoard">
+                <div class="table">
+                    <div class="row">
+                        <div class="cell" data-col="0"></div>
+                        <div class="cell" data-col="1"></div>
+                        <div class="cell" data-col="2"></div>
+                    </div> <!-- / row -->
+                    <div class="row">
+                        <div class="cell" data-col="3"></div>
+                        <div class="cell" data-col="4"></div>
+                        <div class="cell" data-col="5"></div>
+                    </div> <!-- / row -->
+                    <div class="row">
+                        <div class="cell" data-col="6"></div>
+                        <div class="cell" data-col="7"></div>
+                        <div class="cell" data-col="8"></div>
+                    </div> <!-- / row -->                 
+                </div>  <!-- / table -->                
+            </div> <!-- / user board -->
+
+        </div> <!-- / gameDiv -->
+    </div>
+
+</main>
+<footer>
+    <div class="footer">
+        Developed by: Alexandru G&icirc;tman &copy; 2024
+    </div>
+</footer>
+<script src="index.js" type="module"></script>
+</body>
+</html>
