@@ -8,7 +8,7 @@ var ai = new Minimax('O');
 function userHitsOnAi(e) {
     console.log("User hits on AI");
     let y = parseInt(e.target.getAttribute('data-col'));
-    if (e.target.innerHTML == "O") {
+    if (e.target.innerHTML == "O" || e.target.innerHTML == "X") {
         // no override
         return;
     }
